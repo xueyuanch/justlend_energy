@@ -57,11 +57,6 @@ func newDaemon() *daemon {
 	var err error
 	d.Config = config.Resolve()
 
-	//d.DB = repos.NewDB()
-	//if err = d.DB.Open(d.Config.DBConnInfo()); err != nil {
-	//	log.FatalW("cannot open db", "error", err)
-	//}
-
 	if d.Endpoint, err = tron.NewEndpoint(); err != nil {
 		log.FatalW("cannot connect tron", "error", err)
 	}

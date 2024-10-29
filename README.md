@@ -7,7 +7,9 @@
 ## RUN
 [Download](https://github.com) and use it directly after compilation
 
-> git clone https://github.com/19byte/justlend_energy.git
+```shell
+git clone https://github.com/19byte/justlend_energy.git
+```
 
 > cd justlend_energy
 

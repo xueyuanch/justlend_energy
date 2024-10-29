@@ -17,6 +17,8 @@ go run cmd/justlend.go
 
 ## HTTP Interface (Port: 8085)
 
+For detailed definitions of the `type` field, please refer to the [tronprotocol/protocol GitHub repository](https://github.com/tronprotocol/protocol/blob/2a678934da3992b1a67f975769bbb2d31989451f/core/contract/common.proto#L9).
+
 ### Query Fee
 
 - **Description**: Retrieve the current rental fee information

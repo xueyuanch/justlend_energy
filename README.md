@@ -117,4 +117,4 @@ For detailed definitions of the `type` field, please refer to the [tronprotocol/
 
 ## Contributing
 
-We welcome contributions to improve this project! You can submit your code via Pull Requests or leave your feedback in the Issues section.
+welcome contributions to improve this project! You can submit your code via Pull Requests or leave your feedback in the Issues section.

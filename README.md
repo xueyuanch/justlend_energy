@@ -1,22 +1,118 @@
-# JUSTLEND ENERGY
 
+# JustLend Energy
 
 ## Overview
-* Use golang to implement the cost calculation, rental and refund functions of justlend.
 
-## RUN
-[Download](https://github.com/19byte/justlend_energy/releases) and use it directly after compilation
+This project implements energy rental functionality on the JustLend platform using Golang, providing energy cost calculation, rental, and refund features for a fast and convenient experience.
+
+## Quick Start
+
+You can [download the precompiled version here](https://github.com/19byte/justlend_energy/releases) or compile and run it yourself with the following steps:
 
 ```shell
 git clone https://github.com/19byte/justlend_energy.git
+cd justlend_energy
+go run cmd/justlend.go
 ```
 
-> cd justlend_energy
+## HTTP Interface (Port: 8085)
 
-> go run cmd/justlend.go
+### Query Fee
 
+- **Description**: Retrieve the current rental fee information
+- **Method**: GET
+- **Endpoint**: `/fee`
 
+**Query Parameters**
 
+| Name       | Method | Type   | Required | Remark                     |
+|------------|--------|--------|----------|----------------------------|
+| energy     | query  | string | Yes      | Amount of energy to rent   |
+| privateKey | query  | string | Yes      | User's private key         |
+| type       | query  | string | Yes      | Rental type                |
 
+**Response Example**
 
+```json
+{
+  "code": 1000,
+  "data": {
+    "rentAmount": 1000,
+    "stakePerTrx": 82,
+    "liquidateThreshold": "0",
+    "rentalRate": "0.0000000084933752",
+    "feeRatio": "40",
+    "minFee": "40",
+    "curFeeRatio": "0.041",
+    "rentFee": "0.12034772923392",
+    "prePayFee": 40.12034772923392
+  }
+}
+```
 
+---
+
+### Rent Energy
+
+- **Description**: Rent a specified amount of energy
+- **Method**: POST
+- **Endpoint**: `/rent`
+
+**Body Parameters**
+
+```json
+{
+  "receive": "receiver address",
+  "type": 1,
+  "amount": 100000,
+  "privateKey": "user's private key"
+}
+```
+
+**Response Example**
+
+```json
+{
+  "code": 1000,
+  "data": {
+    "txId": "transaction ID",
+    "stakePerTrx": 8174000000
+  }
+}
+```
+
+---
+
+### Return Energy
+
+- **Description**: Return previously rented energy
+- **Method**: POST
+- **Endpoint**: `/return`
+
+**Body Parameters**
+
+```json
+{
+  "receive": "receiver address",
+  "type": 1,
+  "stakePerTrx": 8174000000,
+  "privateKey": "user's private key"
+}
+```
+
+**Response Example**
+
+```json
+{
+  "code": 1000,
+  "data": {
+    "txId": "transaction ID"
+  }
+}
+```
+
+---
+
+## Contributing
+
+We welcome contributions to improve this project! You can submit your code via Pull Requests or leave your feedback in the Issues section.
